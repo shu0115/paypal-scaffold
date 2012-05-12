@@ -5,7 +5,7 @@
 
 Gem::Specification.new do |s|
   s.name = "paypal-scaffold"
-  s.version = "0.1.0"
+  s.version = "0.1.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["shu_0115"]
@@ -32,7 +32,7 @@ Gem::Specification.new do |s|
     "spec/spec_helper.rb"
   ]
   s.homepage = "http://github.com/shu0115/paypal-scaffold"
-  s.licenses = ["MIT"]
+  s.licenses = ["CC BY-NC-SA 2.1"]
   s.require_paths = ["lib"]
   s.rubygems_version = "1.8.23"
   s.summary = "PayPal Scaffold"
