@@ -12,7 +12,13 @@ module Paypal
         copy_file "app/models/paypal_api.rb", "app/models/paypal_api.rb"
         
         # Config
-        inject_into_file "config/initializers/local_setting.rb", "config/initializers/local_setting.rb"
+        if File.exist?('config/initializers/local_setting.rb')
+#          insert_into_file "app/assets/javascripts/application.js", "//= require twitter/bootstrap\n", :after => "jquery_ujs\n"
+          append_file "config/initializers/local_setting.rb", "config/initializers/local_setting.rb"
+        else
+#          copy_file "application.js", "app/assets/javascripts/application.js"
+          copy_file "config/initializers/local_setting.rb", "config/initializers/local_setting.rb"
+        end
         
 =begin
         # Config
