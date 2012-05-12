@@ -23,7 +23,8 @@ module Paypal
           content += "ENV['PAYPAL_FREQUENCY'] = \"1\"       # 回数\n"
           content += "ENV['PAYPAL_AMOUNT']    = \"150\"     # 金額\n"
           
-          append_file "config/initializers/local_setting.rb", content.force_encoding('ASCII-8BIT').encode('UTF-8')
+#          append_file "config/initializers/local_setting.rb", content.force_encoding('ASCII-8BIT').encode('UTF-8')
+          append_file "config/initializers/local_setting.rb", content.encode("ASCII-8BIT", "UTF-8")
         else
           copy_file "config/initializers/local_setting.rb", "config/initializers/local_setting.rb"
         end
