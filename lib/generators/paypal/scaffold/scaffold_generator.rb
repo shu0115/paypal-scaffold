@@ -15,7 +15,7 @@ module Paypal
         # Config
         if File.exist?('config/initializers/local_setting.rb')
           content = "# PayPal\n"
-          content = "ENV['PAYPAL_SANDBOX']   = \"ON\"\n"
+          content += "ENV['PAYPAL_SANDBOX']   = \"ON\"\n"
           
           insert_into_file "config/initializers/local_setting.rb", content
           
