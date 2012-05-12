@@ -1,3 +1,5 @@
+# coding: utf-8
+
 # PayPal
 ENV['PAYPAL_SANDBOX']   = "ON"
 ENV['PAYPAL_USER_NAME'] = "test01_1336296393_biz_api1.gmail.com"
