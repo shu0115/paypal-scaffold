@@ -14,8 +14,14 @@ module Paypal
         
         # Config
         if File.exist?('config/initializers/local_setting.rb')
+          content = "# PayPal\n"
+          content = "ENV['PAYPAL_SANDBOX']   = \"ON\"\n"
+          
+          insert_into_file "config/initializers/local_setting.rb", content
+          
 #          insert_into_file "app/assets/javascripts/application.js", "//= require twitter/bootstrap\n", :after => "jquery_ujs\n"
 #          append_file "config/initializers/local_setting.rb", "config/initializers/local_setting.rb"
+=begin
           append_file 'config/initializers/local_setting.rb' do
             '# PayPal'
             'ENV["PAYPAL_SANDBOX"]   = "ON"'
@@ -29,6 +35,7 @@ module Paypal
             'ENV["PAYPAL_FREQUENCY"] = "1"'
             'ENV["PAYPAL_AMOUNT"]    = "150"'
           end
+=end
         else
 #          copy_file "application.js", "app/assets/javascripts/application.js"
           copy_file "config/initializers/local_setting.rb", "config/initializers/local_setting.rb"
