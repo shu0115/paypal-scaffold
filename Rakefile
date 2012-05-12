@@ -16,7 +16,7 @@ Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
   gem.name = "paypal-scaffold"
   gem.homepage = "http://github.com/shu0115/paypal-scaffold"
-  gem.license = "MIT"
+  gem.license = "CC BY-NC-SA 2.1"
   gem.summary = "PayPal Scaffold"
   gem.description = "Scaffold for PayPal."
   gem.email = "raisondetre0115@gmail.com"
