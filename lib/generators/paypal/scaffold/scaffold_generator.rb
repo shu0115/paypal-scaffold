@@ -28,10 +28,11 @@ module Paypal
           print "[ content.encoding ] : " ; p content.encoding ;
           print "[ content.force_encoding ] : " ; p content.force_encoding('UTF-8').encoding ;
           print "[ content.encode! ] : " ; p content.encode!("UTF-8").encoding ;
+          print "[ content.force_encoding ] : " ; p content.force_encoding('ASCII-8BIT').encoding ;
           puts
           
 #          append_file "config/initializers/local_setting.rb", content.force_encoding('ASCII-8BIT').encode('UTF-8')
-          append_file "config/initializers/local_setting.rb", content
+          append_file "config/initializers/local_setting.rb", content.force_encoding('ASCII-8BIT')
         else
           copy_file "config/initializers/local_setting.rb", "config/initializers/local_setting.rb"
         end
