@@ -18,7 +18,7 @@ module Paypal
           # content += "ENV['PAYPAL_SANDBOX']   = \"ON\"\n"
           
 #          insert_into_file "config/initializers/local_setting.rb", content.to_s
-          insert_into_file "config/initializers/local_setting.rb", "# PayPal\n"
+          insert_into_file "config/initializers/local_setting.rb", "\# PayPal\n"
 #          insert_into_file "config/initializers/local_setting.rb", "ENV['PAYPAL_SANDBOX']   = \"ON\"\n"
           
 #          insert_into_file "app/assets/javascripts/application.js", "//= require twitter/bootstrap\n", :after => "jquery_ujs\n"
