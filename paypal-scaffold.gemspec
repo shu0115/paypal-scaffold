@@ -27,7 +27,7 @@ Gem::Specification.new do |s|
     "lib/generators/paypal/scaffold/scaffold_generator.rb",
     "lib/generators/paypal/scaffold/templates/app/models/paypal_api.rb",
     "lib/generators/paypal/scaffold/templates/config/initializers/local_setting.rb",
-    "lib/paypal-scaffold.rb",
+    "paypal-scaffold.gemspec",
     "spec/paypal-scaffold_spec.rb",
     "spec/spec_helper.rb"
   ]
@@ -41,15 +41,18 @@ Gem::Specification.new do |s|
     s.specification_version = 3
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
+      s.add_runtime_dependency(%q<paypal-express>, [">= 0"])
       s.add_development_dependency(%q<rspec>, ["~> 2.8.0"])
       s.add_development_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8.3"])
     else
+      s.add_dependency(%q<paypal-express>, [">= 0"])
       s.add_dependency(%q<rspec>, ["~> 2.8.0"])
       s.add_dependency(%q<rdoc>, ["~> 3.12"])
       s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
     end
   else
+    s.add_dependency(%q<paypal-express>, [">= 0"])
     s.add_dependency(%q<rspec>, ["~> 2.8.0"])
     s.add_dependency(%q<rdoc>, ["~> 3.12"])
     s.add_dependency(%q<jeweler>, ["~> 1.8.3"])
