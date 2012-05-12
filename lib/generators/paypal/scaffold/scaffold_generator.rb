@@ -12,7 +12,7 @@ module Paypal
         copy_file "app/models/paypal_api.rb", "app/models/paypal_api.rb"
         
         # Config
-        append_file "config/initializers/local_setting.rb", "config/initializers/local_setting.rb"
+        inject_into_file "config/initializers/local_setting.rb", "config/initializers/local_setting.rb"
         
 =begin
         # Config
