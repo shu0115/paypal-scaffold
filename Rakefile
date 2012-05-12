@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "paypal-scaffold"
   gem.homepage = "http://github.com/shu0115/paypal-scaffold"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = "PayPal Scaffold"
+  gem.description = "Scaffold for PayPal."
   gem.email = "raisondetre0115@gmail.com"
   gem.authors = ["shu_0115"]
   # dependencies defined in Gemfile
