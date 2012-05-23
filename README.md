@@ -97,11 +97,76 @@ end
 
 #### PaypalApi.get_recurring_profile
 
+```ruby
+@recurring = PaypalApi.get_recurring_profile( profile_id )
+
+unless @recurring.try(:status) == "Active"
+  flash.now[:alert] = "PayPalステータスが有効ではありません。"
+end
+```
+
+```erb
+<b>PayPalステータス:</b><br />
+status：<%= @recurring.status %><br />
+start_date：<%= Time.parse( @recurring.start_date ).strftime("%Y/%m/%d %H:%M:%S") rescue "" %><br />
+description：<%= @recurring.description %><br />
+name：<%= @recurring.name %><br />
+billing - amount total：<%= @recurring.billing.amount.total %>／period：<%= @recurring.billing.period %>／frequency：<%= @recurring.billing.frequency %>／currency_code：<%= @recurring.billing.currency_code %><br />
+regular_billing - amount total：<%= @recurring.regular_billing.amount.total %>／period：<%= @recurring.regular_billing.period %>／frequency：<%= @recurring.regular_billing.frequency %>／currency_code：<%= @recurring.regular_billing.currency_code %><br />
+summary - next_billing_date：<%= Time.parse( @recurring.summary.next_billing_date ).strftime("%Y/%m/%d %H:%M:%S") rescue "" %>／cycles_completed：<%= @recurring.summary.cycles_completed %>／cycles_remaining：<%= @recurring.summary.cycles_remaining %>／outstanding_balance：<%= @recurring.summary.outstanding_balance %>／failed_count：<%= @recurring.summary.failed_count %>／last_payment_date：<%= @recurring.summary.last_payment_date %>／last_payment_amount：<%= @recurring.summary.last_payment_amount %><br />
+```
+
 #### PaypalApi.cancel_recurring
+
+```ruby
+response = PaypalApi.cancel_recurring( profile_id )
+
+if response == "Success"
+  notice = "PayPalのキャンセルが完了しました。"
+else
+  alert = "PayPalのキャンセルに失敗しました。"
+end
+
+redirect_to( { action: "index" }, notice: notice, alert: alert )
+```
 
 #### PaypalApi.adaptive_payment
 
+```ruby
+return_url = url_for( controller: "top", action: "index", result: "Success" )
+cancel_url = url_for( controller: "top", action: "index", result: "Cancel" )
+
+receiver_list =[
+  { "email" => "email01@email.com", "amount" => 100 },
+  { "email" => "email02@email.com", "amount" => 200 },
+]
+
+result, response = PaypalApi.adaptive_payment( return_url, cancel_url, receiver_list )
+
+if result == "Success"
+  redirect_to response and return
+else
+  flash.now[:alert] = "PayPal接続に失敗しました。\n#{response}"
+end
+```
+
 #### PaypalApi.mass_pay
+
+```ruby
+receive_list = [
+  { email: "email01@email.com", amount: 100 },
+  { email: "email02@email.com", amount: 200 },
+  { email: "email03@email.com", amount: 300 },
+]
+
+result_hash = PaypalApi.mass_pay( receive_list )
+
+if result_hash["ACK"] == "Success"
+  flash.now[:notice] = "支払いが完了しました。"
+else
+  flash.now[:alert] = "支払いに失敗しました。"
+end
+```
 
 ## Contributing
 
