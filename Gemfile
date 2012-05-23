@@ -13,4 +13,6 @@ group :development do
 #  gem "rcov", ">= 0"
 end
 
+# For PayPal
 gem 'paypal-express'
+gem 'paypal_adaptive'
