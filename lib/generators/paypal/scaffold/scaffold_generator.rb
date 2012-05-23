@@ -34,9 +34,9 @@ module Paypal
           content += "  PAYPAL_SANDBOX = \"ON\"\n"
           content += "end\n"
           content = "\n# PayPal Recurring\n"
-          content += "PAYPAL_PERIOD           = :Month  # 周期 ie.) :Month, :Week, :Day\n"
-          content += "PAYPAL_FREQUENCY        = 1       # 回数\n"
-          content += "PAYPAL_RECURRING_AMOUNT = 150     # 金額\n"
+          content += "PAYPAL_RECURRING_PERIOD    = :Month  # 周期 ie.) :Month, :Week, :Day\n"
+          content += "PAYPAL_RECURRING_FREQUENCY = 1       # 回数\n"
+          content += "PAYPAL_RECURRING_AMOUNT    = 150     # 金額\n"
           
           append_file( "config/initializers/constants.rb", content.force_encoding('ASCII-8BIT') )
         else

@@ -8,6 +8,6 @@ else
 end
 
 # PayPal Recurring
-PAYPAL_PERIOD           = :Month  # 周期 ie.) :Month, :Week, :Day
-PAYPAL_FREQUENCY        = 1       # 回数
-PAYPAL_RECURRING_AMOUNT = 150     # 金額
+PAYPAL_RECURRING_PERIOD    = :Month  # 周期 ie.) :Month, :Week, :Day
+PAYPAL_RECURRING_FREQUENCY = 1       # 回数
+PAYPAL_RECURRING_AMOUNT    = 150     # 金額

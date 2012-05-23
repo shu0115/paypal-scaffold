@@ -68,9 +68,9 @@ class PaypalApi
       start_date: Time.now,
       description: description,
       billing: {
-        period:        PAYPAL_PERIOD,
-        frequency:     PAYPAL_FREQUENCY,
-        amount:        PAYPAL_AMOUNT,
+        period:        PAYPAL_RECURRING_PERIOD,
+        frequency:     PAYPAL_RECURRING_FREQUENCY,
+        amount:        PAYPAL_RECURRING_AMOUNT,
         currency_code: :JPY, # if nil, PayPal use USD as default
       }
     )

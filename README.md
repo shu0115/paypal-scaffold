@@ -39,9 +39,9 @@ else
 end
 
 # PayPal Recurring
-PAYPAL_PERIOD           = :Month  # 周期 ie.) :Month, :Week, :Day
-PAYPAL_FREQUENCY        = 1       # 回数
-PAYPAL_RECURRING_AMOUNT = 150     # 金額
+PAYPAL_RECURRING_PERIOD    = :Month  # 周期 ie.) :Month, :Week, :Day
+PAYPAL_RECURRING_FREQUENCY = 1       # 回数
+PAYPAL_RECURRING_AMOUNT    = 150     # 金額
 ```
 
 [ Development ]
@@ -66,6 +66,42 @@ Heroku: config:add
     heroku config:add PAYPAL_USER_NAME=YOUR_API_USERNAME
     heroku config:add PAYPAL_PASSWORD=YOUR_API_PASSWORD
     heroku config:add PAYPAL_SIGNATURE=YOUR_SIGNATURE
+
+## Method Call Sample
+
+#### PaypalApi.set_express_checkout
+
+```ruby
+success_calback_url = request.url
+cancel_calback_url  = url_for( controller: "top", action: "index", id: params[:id] )
+description         = "定期購読支払い"
+
+# PayPal取引開始
+redirect_uri = PaypalApi.set_express_checkout( success_calback_url, cancel_calback_url, description )
+
+redirect_to redirect_uri and return
+```
+
+#### PaypalApi.create_recurring
+
+```ruby
+token = params[:token]
+
+# PayPal定期支払作成
+profile_id = PaypalApi.create_recurring( token )
+
+if profile_id.blank?
+  redirect_to( { action: "index" }, alert: "ERROR!!" )
+end
+```
+
+#### PaypalApi.get_recurring_profile
+
+#### PaypalApi.cancel_recurring
+
+#### PaypalApi.adaptive_payment
+
+#### PaypalApi.mass_pay
 
 ## Contributing
 
