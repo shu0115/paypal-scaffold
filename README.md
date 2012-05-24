@@ -69,6 +69,8 @@ Heroku: config:add
 
 ## Method Call Sample
 
+### ----- Recurring Payments API -----
+
 #### PaypalApi.set_express_checkout
 
 ```ruby
@@ -130,6 +132,8 @@ end
 redirect_to( { action: "index" }, notice: notice, alert: alert )
 ```
 
+### ----- Adaptive Payments API -----
+
 #### PaypalApi.adaptive_payment
 
 ```ruby
@@ -149,6 +153,8 @@ else
   flash.now[:alert] = "PayPal接続に失敗しました。\n#{response}"
 end
 ```
+
+### ----- MassPay API -----
 
 #### PaypalApi.mass_pay
 
