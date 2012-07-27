@@ -8,6 +8,8 @@ Edit: Gemfile
 
 ```ruby
 gem 'paypal-scaffold'
+gem 'paypal-express'
+gem 'paypal_adaptive'
 ```
 
 Execute:
@@ -16,7 +18,11 @@ Execute:
 
 Or install it yourself as:
 
-    gem install paypal-scaffold
+```
+gem install paypal-scaffold
+gem install paypal-express
+gem install paypal_adaptive
+```
 
 ## Usage
 
